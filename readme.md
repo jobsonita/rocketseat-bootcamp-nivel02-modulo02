@@ -50,3 +50,19 @@ Devido a alterações na migration, é necessário recriar as tabelas:
 yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
+
+## Sessão 02
+
+### Aula 01
+
+```
+yarn typeorm migration:create -n CreateUsers
+yarn typeorm entity:create -n User
+```
+
+Devido a alterações na migration de Appointments, é necessário recriar as tabelas:
+
+```
+yarn typeorm migration:revert
+yarn typeorm migration:run
+```
