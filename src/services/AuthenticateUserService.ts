@@ -2,6 +2,8 @@ import { compare } from 'bcryptjs'
 import { getRepository } from 'typeorm'
 import { sign } from 'jsonwebtoken'
 
+import authConfig from '../config/auth'
+
 import User from '../models/User'
 
 interface Request {
@@ -31,9 +33,9 @@ export default class AuthenticateUserService {
 
     const payload = { user: { name: user.name } }
 
-    const token = sign(payload, 'willmovetodotenvlater', {
+    const token = sign(payload, authConfig.secret, {
       subject: user.id,
-      expiresIn: '1d',
+      expiresIn: authConfig.tokenDuration,
     })
 
     return { token }
