@@ -80,3 +80,10 @@ yarn typeorm migration:revert
 yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
+
+### Aula 04
+
+```
+yarn add bcryptjs
+yarn add @types/bcryptjs -D
+```

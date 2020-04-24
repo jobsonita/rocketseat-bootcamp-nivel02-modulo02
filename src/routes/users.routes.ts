@@ -16,6 +16,8 @@ router.post('/', async (req, res) => {
       password,
     })
 
+    delete user.password
+
     return res.json(user)
   } catch (error) {
     return res.status(400).json({ message: error.message })
