@@ -23,3 +23,13 @@ yarn dev:server
 ```
 yarn add typeorm pg
 ```
+
+### Aula 05
+
+```
+yarn typeorm migration:create -n CreateAppointments
+yarn typeorm migration:run
+yarn typeorm migration:show
+yarn typeorm migration:revert
+yarn typeorm migration:run
+```
