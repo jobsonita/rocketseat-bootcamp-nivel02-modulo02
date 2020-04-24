@@ -87,3 +87,12 @@ yarn typeorm migration:run
 yarn add bcryptjs
 yarn add @types/bcryptjs -D
 ```
+
+## Sessão 03
+
+### Aula 03
+
+```
+yarn add jsonwebtoken
+yarn add @types/jsonwebtoken -D
+```

@@ -10,11 +10,9 @@ router.post('/', async (req, res) => {
   const authenticateUser = new AuthenticateUserService()
 
   try {
-    const { user } = await authenticateUser.execute({ email, password })
+    const { token } = await authenticateUser.execute({ email, password })
 
-    delete user.password
-
-    return res.json({ user })
+    return res.json({ token })
   } catch (error) {
     return res.status(400).json({ message: error.message })
   }
