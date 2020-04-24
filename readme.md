@@ -66,3 +66,17 @@ Devido a alterações na migration de Appointments, é necessário recriar as ta
 yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
+
+### Aula 02
+
+```
+yarn typeorm migration:create -n AlterProviderFieldToProviderId
+```
+
+Devido a alterações nas migrations de Appointments e de Users, é necessário recriar as tabelas:
+
+```
+yarn typeorm migration:revert
+yarn typeorm migration:revert
+yarn typeorm migration:run
+```
