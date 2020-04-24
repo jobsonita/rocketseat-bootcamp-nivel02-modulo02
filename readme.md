@@ -37,3 +37,16 @@ yarn typeorm migration:run
 ### Aula 06
 
 [definite assignment assertion](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#definite-assignment-assertions)
+
+### Aula 07
+
+```
+yarn add reflect-metadata
+```
+
+Devido a alterações na migration, é necessário recriar as tabelas:
+
+```
+yarn typeorm migration:revert
+yarn typeorm migration:run
+```
