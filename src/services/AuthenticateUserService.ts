@@ -4,6 +4,8 @@ import { sign } from 'jsonwebtoken'
 
 import authConfig from '../config/auth'
 
+import AppError from '../errors/AppError'
+
 import User from '../models/User'
 
 interface Request {
@@ -22,13 +24,13 @@ export default class AuthenticateUserService {
     const user = await usersRepository.findOne({ where: { email } })
 
     if (!user) {
-      throw new Error('Incorrect credentials')
+      throw new AppError('Incorrect credentials')
     }
 
     const passwordMatched = await compare(password, user.password)
 
     if (!passwordMatched) {
-      throw new Error('Incorrect credentials')
+      throw new AppError('Incorrect credentials')
     }
 
     const payload = { user: { name: user.name } }

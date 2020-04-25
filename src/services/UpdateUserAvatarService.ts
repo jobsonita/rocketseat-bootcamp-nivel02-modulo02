@@ -4,6 +4,8 @@ import { getRepository } from 'typeorm'
 
 import { tmpDir } from '../config/upload'
 
+import AppError from '../errors/AppError'
+
 import User from '../models/User'
 
 interface Request {
@@ -18,7 +20,7 @@ export default class UpdateUserAvatarService {
     const user = await usersRepository.findOne(user_id)
 
     if (!user) {
-      throw new Error('Invalid user')
+      throw new AppError('Invalid user', 401)
     }
 
     if (user.avatar) {

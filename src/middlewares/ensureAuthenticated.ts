@@ -3,6 +3,8 @@ import { verify } from 'jsonwebtoken'
 
 import authConfig from '../config/auth'
 
+import AppError from '../errors/AppError'
+
 interface TokenPayload {
   sub: string
 }
@@ -15,13 +17,13 @@ export default async (
   const authHeader = req.headers.authorization
 
   if (!authHeader) {
-    return res.status(401).json({ error: 'Header is missing bearer token' })
+    throw new AppError('Header is missing bearer token', 401)
   }
 
   const match = authHeader.match(/^Bearer (\S+)$/)
 
   if (!match) {
-    return res.status(401).json({ error: 'Invalid bearer token' })
+    throw new AppError('Invalid bearer token', 401)
   }
 
   const token = match[1]
@@ -32,7 +34,7 @@ export default async (
     req.user = { id: decoded.sub }
 
     return next()
-  } catch {
-    return res.status(401).json({ error: 'Invalid jwt token' })
+  } catch (error) {
+    throw new AppError(error.message, 401)
   }
 }
