@@ -107,3 +107,11 @@ yarn typeorm migration:run
 yarn add multer
 yarn add @types/multer -D
 ```
+
+## Sessão 05
+
+### Aula 02
+
+```
+yarn add express-async-errors
+```

@@ -35,6 +35,6 @@ export default async (
 
     return next()
   } catch (error) {
-    throw new AppError(error.message, 401)
+    throw new AppError('Invalid jwt token', 401)
   }
 }
