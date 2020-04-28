@@ -1,30 +1,99 @@
-# Instalação
+<p align="center"><img alt="Logotipo do Projeto" title="Back-end em Node" src=".github/logo.svg" width="200px" /></p>
 
-Na raiz do projeto, execute:
+# Back-end em NodeJS
+
+<p align="center">Autor: Jobson Gilberto Barros Amorim &lt;jobsonita@gmail.com&gt;</p>
+
+Baseado nas aulas do curso [GoStack](https://rocketseat.com.br/gostack) (turma 11) da Rocketseat.
+
+## Sobre este projeto
+
+Este projeto demonstra as configurações básicas de um back-end em NodeJS usando as bibliotecas express, typescript e typeorm.
+
+Este repositório contém a segunda parte das configurações do projeto. A primeira parte pode ser encontrada em [jobsonita/rocketseat-bootcamp-nivel02-modulo01](https://github.com/jobsonita/rocketseat-bootcamp-nivel02-modulo01).
+
+Para maiores detalhes sobre o passo-a-passo da configuração do projeto, utilize a seção "Comandos utilizados na construção do projeto" deste readme em conjunto com o detalhamento dos [commits](https://github.com/jobsonita/rocketseat-bootcamp-nivel02-modulo02/commits/master) deste repositório.
+
+## Dependências Globais
+
+É necessário ter o [Node](https://github.com/nvm-sh/nvm) e [Yarn](https://yarnpkg.com) instalados.
+Eu uso o [VS Code](https://code.visualstudio.com) como meu editor de código padrão neste projeto.
+
+## Bibliotecas e ferramentas utilizadas
+
+- express
+- typescript
+- eslint + prettier (padronização de código)
+- typeorm (com PostgreSQL, biblioteca pg)
+- jsonwebtoken (autenticação)
+- multer (configurado para armazenamento local)
+- Docker (gerenciador de contêiners)
+- Contêiner postgres (através do Docker)
+- Postbird ou DBeaver (PostgreSQL GUI client)
+- Insomnia (simulação de requisições HTTP REST)
+
+## Instalação e execução
+
+Com um terminal aberto na raiz do projeto, execute:
 
 ```
 yarn
 ```
 
-# Uso
+Após a instalação das bibliotecas, instale o Docker em sua máquina e crie uma réplica do contêiner postgres no docker:
 
-Na raiz do projeto, execute:
+```
+docker run --name gostack_postgres -e POSTGRES_PASSWORD=<your_password> -p 5432:5432 -d postgres
+```
+
+O contêiner será ativado por padrão, mas confira usando a primeira linha abaixo e, se o contâiner não estiver ativo, execute a segunda linha para ativá-lo:
+
+```
+docker ps -a
+docker start gostack_postgres
+```
+
+Após a criação do banco de dados, use um cliente sql de sua preferência (como Postbird ou DBeaver) para se conectar ao docker e crie um banco de dados chamado "gobarber". Em seguida, preencha os dados de conexão no arquivo .env:
+
+```
+TYPEORM_CONNECTION = postgres
+TYPEORM_HOST = localhost
+TYPEORM_PORT = 5432
+TYPEORM_USERNAME = postgres
+TYPEORM_PASSWORD = <your_password>
+TYPEORM_DATABASE = gobarber
+TYPEORM_LOGGING = true
+TYPEORM_ENTITIES_DIR = src/models
+TYPEORM_MIGRATIONS_DIR = src/database/migrations
+TYPEORM_ENTITIES = src/models/*.ts
+TYPEORM_MIGRATIONS = src/database/migrations/*.ts
+```
+
+Com o terminal aberto na raiz do projeto, execute a migração das tabelas:
+
+```
+yarn typeorm migration:run
+```
+
+Finalmente, com um terminal aberto na raiz do projeto, execute:
 
 ```
 yarn dev:server
 ```
 
-# Comandos utilizados na construção do projeto
+## Comandos utilizados na construção do projeto
 
-## Sessão 01
+Caso deseje criar um projeto do zero seguindo os passos dos commits, listo abaixo os comandos executados ao longo das aulas. Certifique-se de executar antes os passos do [projeto base](https://github.com/jobsonita/rocketseat-bootcamp-nivel02-modulo01) ou cloná-lo para usá-lo como base.
 
-### Aula 04
+### Sessão 01
+
+#### Aula 04
 
 ```
 yarn add typeorm pg
 ```
 
-### Aula 05
+#### Aula 05
 
 ```
 yarn typeorm migration:create -n CreateAppointments
@@ -34,11 +103,11 @@ yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
 
-### Aula 06
+#### Aula 06
 
-[definite assignment assertion](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#definite-assignment-assertions)
+Usei [definite assignment assertion](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#definite-assignment-assertions) para não ser forçado a desativar a regra strictPropertyInitialization do typescript.
 
-### Aula 07
+#### Aula 07
 
 ```
 yarn add reflect-metadata
@@ -51,9 +120,9 @@ yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
 
-## Sessão 02
+### Sessão 02
 
-### Aula 01
+#### Aula 01
 
 ```
 yarn typeorm migration:create -n CreateUsers
@@ -67,7 +136,7 @@ yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
 
-### Aula 02
+#### Aula 02
 
 ```
 yarn typeorm migration:create -n AlterProviderFieldToProviderId
@@ -81,25 +150,25 @@ yarn typeorm migration:revert
 yarn typeorm migration:run
 ```
 
-### Aula 04
+#### Aula 04
 
 ```
 yarn add bcryptjs
 yarn add @types/bcryptjs -D
 ```
 
-## Sessão 03
+### Sessão 03
 
-### Aula 03
+#### Aula 03
 
 ```
 yarn add jsonwebtoken
 yarn add @types/jsonwebtoken -D
 ```
 
-## Sessão 04
+### Sessão 04
 
-### Aula 01
+#### Aula 01
 
 ```
 yarn typeorm migration:create -n AddAvatarFieldToUsers
@@ -108,9 +177,9 @@ yarn add multer
 yarn add @types/multer -D
 ```
 
-## Sessão 05
+### Sessão 05
 
-### Aula 02
+#### Aula 02
 
 ```
 yarn add express-async-errors
