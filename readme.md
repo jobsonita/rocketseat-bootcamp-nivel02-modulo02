@@ -16,8 +16,7 @@ Para maiores detalhes sobre o passo-a-passo da configuração do projeto, utiliz
 
 ## Dependências Globais
 
-É necessário ter o [Node](https://github.com/nvm-sh/nvm) e [Yarn](https://yarnpkg.com) instalados.
-Eu uso o [VS Code](https://code.visualstudio.com) como meu editor de código padrão neste projeto.
+É necessário ter [Node](https://github.com/nvm-sh/nvm) e [Yarn](https://yarnpkg.com) instalados.
 
 ## Bibliotecas e ferramentas utilizadas
 
@@ -27,6 +26,7 @@ Eu uso o [VS Code](https://code.visualstudio.com) como meu editor de código pad
 - typeorm (com PostgreSQL, biblioteca pg)
 - jsonwebtoken (autenticação)
 - multer (configurado para armazenamento local)
+- [VS Code](https://code.visualstudio.com) (editor de código preferido)
 - Docker (gerenciador de contêiners)
 - Contêiner postgres (através do Docker)
 - Postbird ou DBeaver (PostgreSQL GUI client)
@@ -43,7 +43,7 @@ yarn
 Após a instalação das bibliotecas, instale o Docker em sua máquina e crie uma réplica do contêiner postgres no docker:
 
 ```
-docker run --name gostack_postgres -e POSTGRES_PASSWORD=<your_password> -p 5432:5432 -d postgres
+docker run --name gostack_postgres -e POSTGRES_PASSWORD=your_password -p 5432:5432 -d postgres
 ```
 
 O contêiner será ativado por padrão, mas confira usando a primeira linha abaixo e, se o contâiner não estiver ativo, execute a segunda linha para ativá-lo:
@@ -53,14 +53,14 @@ docker ps -a
 docker start gostack_postgres
 ```
 
-Após a criação do banco de dados, use um cliente sql de sua preferência (como Postbird ou DBeaver) para se conectar ao docker e crie um banco de dados chamado "gobarber". Em seguida, preencha os dados de conexão no arquivo .env:
+Após a criação do banco de dados, use um cliente sql de sua preferência (como Postbird ou DBeaver) para se conectar ao docker e crie um banco de dados chamado "gobarber". Em seguida, faça uma copia do arquivo .env.example com o nome .env e preencha os dados de conexão:
 
 ```
 TYPEORM_CONNECTION = postgres
 TYPEORM_HOST = localhost
 TYPEORM_PORT = 5432
 TYPEORM_USERNAME = postgres
-TYPEORM_PASSWORD = <your_password>
+TYPEORM_PASSWORD = your_password
 TYPEORM_DATABASE = gobarber
 TYPEORM_LOGGING = true
 TYPEORM_ENTITIES_DIR = src/models
@@ -81,9 +81,15 @@ Finalmente, com um terminal aberto na raiz do projeto, execute:
 yarn dev:server
 ```
 
+Utilize uma ferramenta como o Insomnia para fazer requisições nas rotas descritas nos arquivos da pasta src/routes.
+
+```
+GET 'http://localhost:3333/appointments'
+```
+
 ## Comandos utilizados na construção do projeto
 
-Caso deseje criar um projeto do zero seguindo os passos dos commits, listo abaixo os comandos executados ao longo das aulas. Certifique-se de executar antes os passos do [projeto base](https://github.com/jobsonita/rocketseat-bootcamp-nivel02-modulo01) ou cloná-lo para usá-lo como base.
+Caso deseje criar um projeto do zero seguindo os passos dos commits, listo abaixo os comandos executados nesta segunda parte da configuração. Certifique-se de executar antes os passos do [projeto base](https://github.com/jobsonita/rocketseat-bootcamp-nivel02-modulo01) ou cloná-lo para usá-lo como base.
 
 ### Sessão 01
 
