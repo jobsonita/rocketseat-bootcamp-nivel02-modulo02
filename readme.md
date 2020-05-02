@@ -6,6 +6,8 @@
 
 Baseado nas aulas do curso [GoStack](https://rocketseat.com.br/gostack) (turma 11) da Rocketseat.
 
+<img alt="Quickstep Guide" title="Quicksteps" src=".github/quicksteps.gif" width="600px" />
+
 ## Sobre este projeto
 
 Este projeto demonstra as configurações básicas de um back-end em NodeJS usando as bibliotecas express, typescript e typeorm.
@@ -43,7 +45,7 @@ yarn
 Após a instalação das bibliotecas, instale o Docker em sua máquina e crie uma réplica do contêiner postgres no docker:
 
 ```
-docker run --name gostack_postgres -e POSTGRES_PASSWORD=your_password -p 5432:5432 -d postgres
+docker run --name gostack_postgres -e POSTGRES_PASSWORD=your_password -p 5432:5432 -d postgres:11
 ```
 
 O contêiner será ativado por padrão, mas confira usando a primeira linha abaixo e, se o contâiner não estiver ativo, execute a segunda linha para ativá-lo:
