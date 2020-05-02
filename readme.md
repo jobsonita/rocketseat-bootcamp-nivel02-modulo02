@@ -6,7 +6,7 @@
 
 Baseado nas aulas do curso [GoStack](https://rocketseat.com.br/gostack) (turma 11) da Rocketseat.
 
-<img alt="Quickstep Guide" title="Quicksteps" src=".github/quicksteps.gif" width="600px" />
+<p align="center"><img alt="Quickstep Guide" title="Quicksteps" src=".github/quicksteps.gif" width="600px" /></p>
 
 ## Sobre este projeto
 
