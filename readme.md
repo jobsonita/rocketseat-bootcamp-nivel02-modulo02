@@ -192,3 +192,14 @@ yarn add @types/multer -D
 ```
 yarn add express-async-errors
 ```
+
+## branch nivel03modulo02
+
+### Sessão 02
+
+#### Aula 01
+
+```
+yarn add cors
+yarn add @types/cors -D
+```
