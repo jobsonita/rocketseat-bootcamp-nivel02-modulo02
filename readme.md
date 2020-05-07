@@ -203,3 +203,10 @@ yarn add express-async-errors
 yarn add cors
 yarn add @types/cors -D
 ```
+
+### Sessão 04
+
+#### Aula 02
+
+Retornando dados do usuário logado ao criar a sessão.
+Estes dados serão usados no front-end.
